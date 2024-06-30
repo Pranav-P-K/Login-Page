@@ -1,6 +1,10 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+}
+
 body {
     margin: 10px 120px;
-    background-color: hsl(284, 100%, 55%);
+    background-color: hsl(0, 0%, 22%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,28 +19,38 @@ body {
     width: 100%;
     max-width: 1200px;
     background-color: hsl(0, 0%, 100%);
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(205, 219, 11, 0.1);
 }
 
 .content {
-    background-color: aqua;
+    background-color: hsl(0, 0%, 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
-    width: 40%;
+    width: 50%;
     text-align: center;
-    border-radius: 20px 0 0 20px;
+    border-radius: 10px 0 0 10px;
 }
 
 .login-image {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 0 20px 20px 0;
+    animation-name: slideLeft;
+    animation-duration: 2s;
+    
+}
+
+.signup-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    animation-name: slideRight;
+    animation-duration: 2s;
 }
 
 form {
@@ -46,12 +60,16 @@ form {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     margin: 0 0 15px 0;
 }
 
+h3 {
+    margin: -10px 0 15px 0;
+}
 
-input[type="email"], input[type="password"] {
+
+input[type="email"], input[type="text"], input[type="password"], input[type="number"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -59,10 +77,14 @@ input[type="email"], input[type="password"] {
     box-sizing: border-box;
 }
 
+input[type="number"] {
+    text-align: center;
+}
 .form-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 .content-footer {
@@ -107,7 +129,7 @@ input[type="email"], input[type="password"] {
 }
 
 
-button {
+.btn1 {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -116,7 +138,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.btn1:hover {
     background-color: #555;
 }
 
@@ -128,3 +150,37 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+@keyframes slideLeft {
+    from{transform: translateX(105%)}
+}
+
+@keyframes slideRight {
+    from{transform: translateX(-105%)}
+}
+@media screen and (max-width: 900px) {
+    .image-content {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+
+/* Media Query for page zoom less than or equal to 50% (approximation) */
+@media screen and (min-width: 1700px) {
+        .image-content {
+            display: none;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        .content {
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
